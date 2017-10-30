@@ -1,0 +1,290 @@
+$collectedColor: #99ffe5;
+$deliveredColor: #cfb7fb;
+$tableBorderColor: #999;
+$firstWidth: 1024px;
+$secondWidth: 768px;
+
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #fff;
+}
+.container {
+	max-width: 1200px;
+	.row-fluid {
+		.scheduleContainer {
+			box-sizing: border-box;
+			padding: 5%;
+			@media (min-width: $firstWidth) {
+				padding: 0;
+			}
+		}
+		.tKey {
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+		.schedule {
+			.scheduleForm {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				font-size: 14px;
+				margin: 0;
+				.divider {					
+					height: 1px;
+					width: 50%;
+					background-color: $tableBorderColor;
+					margin: 20px auto;
+					@media (min-width: $secondWidth) {
+						display: none;
+					}
+				}
+				.inputBlock {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					width: 100%;
+					// @media (min-width: 475px) {
+					// 	margin-right: 20px;
+					// }
+					@media (min-width: $secondWidth) {
+						width: auto;
+					}
+					.inputField,
+					.submitBtn {
+						width: 100%;
+						@media (min-width: $secondWidth) {
+							width: auto;
+						}
+					}
+					.inputField {
+						padding: 4px 10px;						
+						margin-bottom: 10px;
+						@media (min-width: $secondWidth) {
+							margin-right: 5px;
+						}
+					}
+					.submitBtn {
+						background-color: #3fb09d;
+						color: #fff;
+						border: 0;
+						outline-color: #3fb09d;
+						padding: 6px 20px;						
+						@media (min-width: $secondWidth) {
+							margin-bottom: 10px;
+						}
+					}
+				}
+				.filterBtns {					
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					margin-bottom: 10px;
+					@media (min-width: $secondWidth) {
+						justify-content: start;
+					}
+					.filterBtn {
+						display: none;
+						width: 48%;
+						text-align: center;
+						color: #fff;
+						cursor: pointer;
+						padding: 8px;
+						@media (min-width: $secondWidth) {
+							width: auto;
+						}
+						&.active {
+							display: block;
+						}
+						&.collectedBtn {
+							background-color: $collectedColor;
+							margin-right: 5px;
+						}
+						&.deliveredBtn {
+							background-color: $deliveredColor;
+						}
+					}			
+				}
+			}
+			.dailyTable {
+				margin-top: 20px;
+				@media (min-width: $firstWidth) {
+					border: 1px solid $tableBorderColor;
+				}
+				.tableHeader {
+					display: none;
+					text-transform: capitalize;
+					font-weight: bold;					
+					@media (min-width: $firstWidth) {
+						display: flex;
+					}
+				}		
+				.tRow {	
+					position: relative;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					box-sizing: border-box;
+					width: 100%;	
+					border: 1px solid $tableBorderColor;	
+					margin-bottom: 20px;
+					&:last-child {
+						margin-bottom: 0;				
+						&::before {
+							height: calc(100% - 49px);
+						}
+					}
+					&::before {
+						position: absolute;
+						content: "";
+						left: 50%;
+						top: 0;
+						transform: translateX(-50%);
+						height: calc(100% - 50px);
+						width: 1px;
+						background-color: $tableBorderColor;
+						@media (min-width: $firstWidth) {
+							height: 0;
+							width: 0;
+						}
+					}
+					@media (min-width: $firstWidth) {
+						flex-direction: row;
+						height: auto;
+						padding: 0;
+						margin: 0;	
+						border: 0;	
+						border-top: 1px solid $tableBorderColor;
+						&:first-child {
+							border-top: 0;
+						}												
+					}
+					&.collected {
+						background-color: $collectedColor;
+					}
+					&.delivered {
+						background-color: $deliveredColor;
+					}
+					&.timeOfDayRow {
+						border-bottom: 0;
+						margin: 0;
+						margin-top: 20px;
+						&::before {
+							height: 0;
+						}
+						@media (min-width: $firstWidth) {
+							border-top: 1px solid $tableBorderColor;	
+							margin-top: 0;						
+						}
+						.tData {
+							justify-content: flex-start;					
+							.timeOfDay {
+								font-weight: bold;
+								font-size: 15px;
+								text-transform: uppercase;
+								padding: 20px 5px 10px;
+							}	
+						}
+					}
+					.tData {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						box-sizing: border-box;
+						text-align: center;
+						border-top: 1px solid $tableBorderColor;
+						padding: 10px 0;
+						&:first-child {
+							border-top: 0;
+						}
+						&:last-child {
+							height: 50px;
+							@media (min-width: $firstWidth) {
+								height: auto;
+							}
+						}				
+						@media (min-width: $firstWidth) {
+							padding: 5px;
+							border: 0;
+							border-left: 1px solid $tableBorderColor;
+							&:first-child {
+								border-left: 0;
+							}
+							&:nth-child(1),
+							&:nth-child(2),
+							&:nth-child(4) {
+								width: 7.66%;
+							}
+							&:nth-child(3) {
+								width: 10.43%;
+							}	
+							&:nth-child(5) {
+								width: 13.11%; //+5.4% + 1%
+							}
+							&:nth-child(6),
+							&:nth-child(7),
+							&:nth-child(8) {
+								width: 7.34%; // -1.8%
+							}
+							&:nth-child(9) {
+								width: 5.39%; // -1%
+							}
+							&:nth-child(10) {
+								width: 7.02%;
+							}
+							&:nth-child(11) {
+								width: 11.7%;
+							}
+							&:nth-child(12) {
+								width: 7.35%;
+							}
+						}
+						.tKey,
+						.tValue {
+							display: flex;
+							align-items: center;
+							width: 50%;		
+							box-sizing: border-box;			
+							padding: 5px;
+							@media (min-width: $firstWidth) {
+								justify-content: center;
+								width: 100%;
+								padding: 0;
+							}
+							.selectStatus {
+								width: 100px;
+								height: 28px;
+								padding: 4px 6px;
+								border-radius: 3px;
+								cursor: pointer;
+							}
+						}
+						.tKey {
+							@media (min-width: $firstWidth) {
+								display: none;
+							}
+						}
+					}
+					.processBtn {
+						width: 50%;
+						color: #08C;
+						text-decoration: none;
+						font-size: 14px;
+						cursor: pointer;						
+						padding: 6px 0;
+						border: 1px solid #333;
+						background: #fff;
+						border-radius: 5px;
+						@media (min-width: $firstWidth) {
+							width: auto;
+							font-size: 13px;
+							padding: 1px 4px;
+						}
+					}
+				}
+			}
+		}		
+	}
+}

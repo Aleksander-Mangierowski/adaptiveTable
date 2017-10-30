@@ -1,0 +1,202 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  background-color: #fff; }
+
+.scheduleContainer {
+  box-sizing: border-box;
+  padding: 5%; }
+
+.tKey {
+  font-weight: bold;
+  text-transform: capitalize; }
+
+.schedule .scheduleForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 0; }
+  .schedule .scheduleForm .dpBlock {
+    display: flex;
+    align-items: center; }
+    @media (min-width: 475px) {
+      .schedule .scheduleForm .dpBlock {
+        margin-right: 20px; } }
+    .schedule .scheduleForm .dpBlock .myDatepicker {
+      padding: 4px 10px;
+      margin-right: 5px; }
+    .schedule .scheduleForm .dpBlock .dpBtn {
+      background-color: #3fb09d;
+      color: #fff;
+      border: 0;
+      outline-color: #3fb09d;
+      padding: 6px 20px; }
+  .schedule .scheduleForm .filterBtns {
+    display: flex;
+    padding: 10px 0; }
+    .schedule .scheduleForm .filterBtns .filterBtn {
+      display: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 8px; }
+      .schedule .scheduleForm .filterBtns .filterBtn.active {
+        display: block; }
+      .schedule .scheduleForm .filterBtns .filterBtn.collectedBtn {
+        background-color: #99ffe5;
+        margin-right: 5px; }
+      .schedule .scheduleForm .filterBtns .filterBtn.deliveredBtn {
+        background-color: #cfb7fb; }
+.schedule .dailyTable .tableHeader {
+  display: none;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-top: 20px; }
+  @media (min-width: 1024px) {
+    .schedule .dailyTable .tableHeader {
+      display: flex; } }
+.schedule .dailyTable .tRow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #999;
+  margin-bottom: 20px; }
+  .schedule .dailyTable .tRow:last-child {
+    margin-bottom: 0; }
+    .schedule .dailyTable .tRow:last-child::before {
+      height: calc(100% - 39px); }
+  .schedule .dailyTable .tRow::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: calc(100% - 40px);
+    width: 1px;
+    background-color: #999; }
+    @media (min-width: 1024px) {
+      .schedule .dailyTable .tRow::before {
+        height: 0;
+        width: 0; } }
+  @media (min-width: 1024px) {
+    .schedule .dailyTable .tRow {
+      flex-direction: row;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      border: 0; }
+      .schedule .dailyTable .tRow.headerRow {
+        border: 0; }
+        .schedule .dailyTable .tRow.headerRow .tData {
+          border-top: 1px solid #999;
+          border-bottom: 1px solid #999; }
+          .schedule .dailyTable .tRow.headerRow .tData:first-child {
+            border-top: 1px solid #999;
+            border-left: 1px solid #999; }
+          .schedule .dailyTable .tRow.headerRow .tData:last-child {
+            border-top: 0;
+            border-bottom: 0; } }
+  @media (min-width: 1024px) {
+    .schedule .dailyTable .tRow.dataRow {
+      border-left: 1px solid #999;
+      border-right: 1px solid #999;
+      border-top: 1px solid #999; }
+      .schedule .dailyTable .tRow.dataRow:last-child {
+        border-bottom: 1px solid #999; } }
+  .schedule .dailyTable .tRow.collected {
+    background-color: #99ffe5; }
+  .schedule .dailyTable .tRow.delivered {
+    background-color: #cfb7fb; }
+  .schedule .dailyTable .tRow.timeOfDayRow {
+    border-bottom: 0;
+    margin: 0; }
+    .schedule .dailyTable .tRow.timeOfDayRow::before {
+      height: 0; }
+    @media (min-width: 1024px) {
+      .schedule .dailyTable .tRow.timeOfDayRow {
+        width: calc(80.95% + 1px);
+        border-left: 1px solid #999;
+        border-right: 1px solid #999; } }
+    .schedule .dailyTable .tRow.timeOfDayRow .tData {
+      justify-content: flex-start; }
+      .schedule .dailyTable .tRow.timeOfDayRow .tData .timeOfDay {
+        font-weight: bold;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 20px 5px 10px; }
+  .schedule .dailyTable .tRow .tData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    border-top: 1px solid #999;
+    padding: 10px 0; }
+    .schedule .dailyTable .tRow .tData:first-child {
+      border-top: 0; }
+    .schedule .dailyTable .tRow .tData:last-child {
+      height: 40px; }
+      @media (min-width: 1024px) {
+        .schedule .dailyTable .tRow .tData:last-child {
+          height: auto; } }
+    @media (min-width: 1024px) {
+      .schedule .dailyTable .tRow .tData {
+        padding: 5px;
+        border: 0;
+        border-left: 1px solid #999; }
+        .schedule .dailyTable .tRow .tData:first-child {
+          border-left: 0; }
+        .schedule .dailyTable .tRow .tData:nth-child(1), .schedule .dailyTable .tRow .tData:nth-child(2), .schedule .dailyTable .tRow .tData:nth-child(4) {
+          width: 7.66%; }
+        .schedule .dailyTable .tRow .tData:nth-child(3) {
+          width: 10.43%; }
+        .schedule .dailyTable .tRow .tData:nth-child(5) {
+          width: 6.71%; }
+        .schedule .dailyTable .tRow .tData:nth-child(6), .schedule .dailyTable .tRow .tData:nth-child(7), .schedule .dailyTable .tRow .tData:nth-child(8) {
+          width: 9.14%; }
+        .schedule .dailyTable .tRow .tData:nth-child(9) {
+          width: 6.39%; }
+        .schedule .dailyTable .tRow .tData:nth-child(10) {
+          width: 7.02%; }
+        .schedule .dailyTable .tRow .tData:nth-child(11) {
+          width: 11.7%; }
+        .schedule .dailyTable .tRow .tData:nth-child(12) {
+          width: 7.35%; } }
+    .schedule .dailyTable .tRow .tData .tKey,
+    .schedule .dailyTable .tRow .tData .tValue {
+      display: flex;
+      align-items: center;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 5px; }
+      @media (min-width: 1024px) {
+        .schedule .dailyTable .tRow .tData .tKey,
+        .schedule .dailyTable .tRow .tData .tValue {
+          justify-content: center;
+          width: 100%;
+          padding: 0; } }
+      .schedule .dailyTable .tRow .tData .tKey .selectStatus,
+      .schedule .dailyTable .tRow .tData .tValue .selectStatus {
+        width: 100px;
+        height: 28px;
+        padding: 4px 6px;
+        border-radius: 3px;
+        cursor: pointer; }
+    @media (min-width: 1024px) {
+      .schedule .dailyTable .tRow .tData .tKey {
+        display: none; } }
+  .schedule .dailyTable .tRow .processBtn {
+    color: #08C;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 1px 4px;
+    border: 1px solid #333;
+    background: #fff;
+    border-radius: 5px; }
+
+/*# sourceMappingURL=dailySchedule.css.map */
